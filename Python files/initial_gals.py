@@ -20,7 +20,7 @@ def main():
         print(f"Pulling objids for {type}...")
         
         #Get all objids where there are at least 3 metallicites, currently the limit has been removed
-        db = sql.connect(host="ip-173-16.main.oberlin.edu", user="colvin", password="c0LV1n", database="sdss")
+        db = sql.connect(host="ip-******.main.oberlin.edu", user="******", password="******", database="****")
         c = db.cursor()
         c.execute(f'''select distinct(objid) from dr17_metallicities where {type} is not NULL limit 6000 ;''') #putting a limit makes this way freaking faster
         galaxiesIDS = c.fetchall()
@@ -39,7 +39,7 @@ def main():
             useID = galaxyID[0]
 
             #Gets metallicities and radii, no edits
-            db = sql.connect(host="ip-173-16.main.oberlin.edu",user="colvin", password="c0LV1n", database="sdss")
+            db = sql.connect(host="ip-******.main.oberlin.edu", user="******", password="******", database="****")
             c = db.cursor()
             c.execute(f'''select m.{type}, r.r_eff_nsa, r.agn_flag_smc from dr17_metallicities m, dr17_spaxels_uber r where m.objid='{useID}' and (m.{type} is not NULL or r.agn_flag_smc is not NULL) and m.spaxid=r.spaxID;''')
             rows = c.fetchall()

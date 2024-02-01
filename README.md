@@ -1,9 +1,17 @@
 EXPLANATION OF THE PROJECT: I worked with my then-advisor, Professor JIllian Scudder, to compared gas phase metallicity gradients in galaxies with an active black hole to the same gradients in galaxies without, active indicating if the central supermassive black hole is attempting to accrete new material. Galaxies with an active black hole flagged in their central regions did not have metallicities in those regions (and thus were flagged as having holes), because the emission line ratios required to calculate a metallicity are altered when the ionization source produces hard radiation instead of the UV light produced by O & B type stars. Thus if a region of a galaxy is flagged as being dominated by non-stellar light, then we do not have metallicities in that region. The idea was then to check for larger-scale changes in the chemistry of a galaxy's gas content, if there is an AGN, by looking further out, where metallicities can be calculated. I compared metallicity gradients between galaxies with and without active black holes at the center. Using a data set authored by my advisor, I wrote code in Python and MySQL to analyze data from 5,000 galaxies across 8 different metallicity calculation methods. I had bi-weekly check-ins with my advisor, where we reviewed my progress and set goals to pursue over the next few days. To finish the project, I created several figures using Matplotlib to display my results. Qualitatively, although we found that galaxies with active black holes generally had slightly higher metallicities close to their center regions, the difference was not significant enough to warrant further investigation.
 
-EXLANATIONS OF THE PYTHON FILES:
-- binner_comp.py -- this file made the figures that can be seen in the folder within the "Graphs" folder
-- bins_sing_gals.py -- this file made the graphs for individual galaxies both with and without holes. These graphs can be seen in any of the other folders in the "Graphs" folder
-- cleaning
+
+EXLANATIONS OF THE PYTHON FILES IN FOLDER "Python files":
+- binner_comp.py -- this file made the overall figures for each metallicity type that can be seen in the folder titled "Comparison between holes v no holes" within the "Graphs" folder using data processed in the data_comp files
+
+- bins_sing_gals.py -- this file made the graphs for individual galaxies both with and without holes using data processed in the data_comp files. These graphs can be seen in any of the other folders in the "Graphs" folder
+
+- data_comp.py -- this accessed the raw data downloaded from SQL and split it up into 4 different categories: galaxies with holes, galaxies without holes, galaxies with too few spaxids to be considered, galaxies with too small of a horizontal range to be considered
+
+- initial_gals.py -- the file that downloaded all the relevant data from SQL
 
 
-EXPLANATION OF THE FIGURES: There are overall comparison figures for each type of metallicity calculation. On those figures are a comparison between the different types of galaxies (holes vs. no holes, or active black hole vs. not) as well as histograms displaying data of the splines that were fit to the each of the galaxies' data. Then, there are some example individual galaxy graphs, showing the difference between galaxies with and without holes. A spline is fit to the data and a cutoff point is listed if the gradient starts with a negative slope and becomes positive. The points in the separate figure below the main figure designate points where metallicity could not be calculated because it is dominated by non-stellar light.
+EXPLANATION OF THE FIGURES IN FOLDER "Graphs": 
+- In "Comparison between holes v no holes" folder -- There are overall comparison figures for each type of metallicity calculation. On those figures are a comparison between the different types of galaxies (holes vs. no holes, which stands for active black hole vs. not) as well as histograms displaying data of the splines that were fit to the each of the galaxies' data. 
+
+- In all other folders, starting with "Metallicity type " -- Then, there are some example individual galaxy graphs, showing the difference between galaxies with and without holes. A spline is fit to the data and a cutoff point is listed if the gradient starts with a negative slope and becomes positive. The points in the separate figure below the main figure designate points where metallicity could not be calculated because it is dominated by non-stellar light.
